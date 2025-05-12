@@ -1,20 +1,4 @@
 <script setup>
-<<<<<<< HEAD
-import { ref } from 'vue'
-
-// give each todo a unique id
-let id = 0
-
-const newTodo = ref('')
-const todos = ref([
-  { id: id++, text: 'Learn HTML' },
-  { id: id++, text: 'Learn JavaScript' },
-  { id: id++, text: 'Learn Vue' }
-])
-
-function addTodo() {
-  todos.value.push({ id: id++, text: newTodo.value })
-=======
 import { ref, computed } from 'vue'
 
 let id = 0
@@ -35,7 +19,6 @@ const filteredTodos = computed(() => {
 
 function addTodo() {
   todos.value.push({ id: id++, text: newTodo.value, done: false })
->>>>>>> tutorial
   newTodo.value = ''
 }
 
@@ -50,14 +33,6 @@ function removeTodo(todo) {
     <button>Add Todo</button>
   </form>
   <ul>
-<<<<<<< HEAD
-    <li v-for="todo in todos[0]" :key="todo.id">
-      {{ todo.text }}
-      <button @click="removeTodo(todo)">X</button>
-    </li>
-  </ul>
-</template>
-=======
     <li v-for="todo in filteredTodos" :key="todo.id">
       <input type="checkbox" v-model="todo.done">
       <span :class="{ done: todo.done }">{{ todo.text }}</span>
@@ -74,4 +49,3 @@ function removeTodo(todo) {
   text-decoration: line-through;
 }
 </style>
->>>>>>> tutorial
